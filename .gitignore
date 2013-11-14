@@ -1,0 +1,11 @@
+#GitIgnore File
+
+#Dia temporary files
+*.dia~
+
+#Libre & MicroSoft Office temporary files
+.~lock*
+~$*
+
+#Ignogre all executables
+*.exe
