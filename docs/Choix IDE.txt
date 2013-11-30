@@ -1,0 +1,11 @@
+﻿Voici un lien pour les IDEs utilisés pour le développement web : 
+http://www.developpez.net/forums/d1185657-3/webmasters-developpement-web/outils/edi-utilisez-2012-developpement-web-pourquoi/
+
+De ma part, je préfère d'utiliser eclipse ou notepad++, cas on connait déjà ces 2 outils et ils ont la fonction d'auto-completion.
+Et en plus, si l serveur est en java, eclipse sera bien pour réduir le nombre d'IDE utilisé.
+Car c'est un développement web, les 2 outils + firebug de firefox, on peut déboguer est tester le site.
+
+Il y a aussi des outils pour tester la compatibilité des navigateurs : (peut-être un outil qui est gratuit pour 3 mois.)
+http://www.modern.ie/fr
+
+Pour l'interface du site, j'ai utilié un outil qui s'appelle Drupal, c'est un peu comme WYSIWYG. Vous pouvez regarder un peu aussi.
