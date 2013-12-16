@@ -1,0 +1,82 @@
+// NB : ID pr se co m:= addresse mail.
+
+// User tel qu'il est enregistré dans la BD
+User
+{
+	auto password	// Quel est le type de password ?
+	String Tel
+	String Email
+	String Nom
+	String Prenom
+	String Photo
+	String Ville
+	String VilleInscription
+};
+
+// Infos que l'user renseigne
+Infos
+{
+	String password1
+	String password2
+	String Tel
+	String Email
+	String Nom
+	String Prenom
+	String Photo
+	String Ville
+};
+
+// Context : Un user va sur la page d'inscription. Il est actuellement un visitor.
+InscriptionProcess()
+{
+	User u = new User();
+	BD b = accessDataBase(); // Methode pr accéder à la BD du server.
+	
+	// Le user remplit un "questionnaire" ou il donne son nom/prenom, tel, mdp, ...
+	// La boucle vérifie que les infos sont bonnes
+	while(1)
+	{
+		if(fillQuestionary(u, b) == true)
+			break;
+	}
+	
+	// Envoie mail avec une addresse a suivre. Cliquer sur l'addresse renvoie sur le SWP et execute addUserToBase(u);
+	// Le mail contient un recapitulatif des infos de l'user.
+	sendMailToUser(u);
+}
+
+// Check si les champs sont déjà pris ou pas par kk1 d'autre. Seul le mail/tel number sont uniques
+// Le mdp est donné en double et doit etre le mm...
+// Renvoie true si les infos sont correctes, false sinon
+// Cette méthode est appellée lorsque que l'user appuie sur le bouton "S'enregistrer" sur le site
+boolean fillQuestionary(User u, BD b)
+{
+	Infos i = getInfosUserGave(); // methode récupérant dans i ce que l'user a écrit. NULL si rien n'est écrit.	
+	
+	// vérif des champs obligatoires	
+	if(i.prenom == NULL OR
+		i.nom == NULL OR
+		i.password1 == NULL OR
+		i.password2 == NULL OR
+		i.mail == NULL OR
+		i.tel == NULL OR
+		i.ville == NULL)
+		return false;
+	
+	// verif que l'user est bien nouveau
+	if(b.hasMember(i.tel) OR b.hasMember(i.mail) )
+		return false;
+	
+	// vérif des mdps
+	if(i.password1 != i.password2)
+		return false;
+		
+	u.writeData(i);	// Ajoute les champs à l'user.
+	u.addVilleInscription( thisPhone.getTown() ); // La méthode thisPhone.getTown() est à trouver.
+}
+
+addUserToBase(u)
+{
+	BD b = accessDataBase();
+	b.add(u);
+}
