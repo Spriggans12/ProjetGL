@@ -1,4 +1,4 @@
-public void updateDistance(Runner r){
+﻿public void updateDistance(Runner r){
 	
 	if(r.getTimer() > TIMEMAX){
 		r.resetCounter();
@@ -33,3 +33,27 @@ public String affiche(Runner r){
 		return getDistance(r);
 	}
 }
+
+//SWP 
+pour l'évenement dont un runner passe la ligne d'arrivée faire : 
+	récupérer la distance dont le runner a couru.
+	récupérer le temps.
+	grouper les infos dans un objet runner.
+	synchroniser les informations de runner avec le serveur en appelant la méthode arrive().
+	
+pour chaque kilomètre dont le runner court faire : 
+	récupérer la distance dont le runner a couru.
+	récupérer le temps.
+	grouper les infos dans un objet runner.
+	synchroniser les informations de runner avec le serveur en appelant la méthode updateDistance().
+
+
+
+
+
+
+
+
+
+
+
