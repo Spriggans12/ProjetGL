@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>Nouveau Compte</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<script type="text/javascript">
+		<!--
+		function menu()
+		{ 
+			var menu = document.getElementById("menu");
+			if(menu.style.display == 'none')
+				menu.style.display = 'inline';
+			else menu.style.display = 'none';
+		}
+
+		function loadContact()
+		{
+
+			var parameters = decodeURI(location.search.substring(1).split("&"));
+			var IDContact = parameters.split("=")[1];
+
+			//! MUST TEST IDContact FROM SQL INJECTION !!!!
+			// or let it to the serveur
+
+			var contact; // load from serveur
+			document.getElementById("name").innerHTML="Yop LAIT";
+
+			//document.getElementById("photo")
+
+			document.getElementById("phone").innerHTML="06 xx xx xx xx";
+			document.getElementById("mail").innerHTML="contact@u-psud.fr";
+			document.getElementById("villeR").innerHTML="UPMC";
+			document.getElementById("villeI").innerHTML="Paris Sud";
+		}
+
+		-->
+		</script>
+	</head>
+	<body onload="loadContact()">
+		<header>
+			<span onclick="menu();">Menu</span>
+			<div id="menu" style="display:none;">
+				<a href="apropos.html">Informations</a>
+				<a href="evennement.html">Evennement</a>
+				<a>Deconnexion</a>
+			</div>
+		</header>
+
+		<h2 id="name">Prenom NOM</h2>
+		<div style="margin:15%;">
+			<!-- Photo -->
+			<img id="photo" alt="photo" style="float:right;"/>
+			<!-- Téléphone -->
+			Telephone : <span id="phone"></span> <br />
+
+			<!-- Email -->
+			Email : <span id="mail"></span> <br />
+			
+			<!-- Ville de rattachement -->
+			Ville de rattachement : <span id="villeR"></span>  <br />
+			
+			<!-- Ville d’inscription -->
+			Ville d inscription : <span id="villeI"></span>  <br />
+			
+
+		</div>
+
+	</body>
+</html>

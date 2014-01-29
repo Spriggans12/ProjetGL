@@ -9,7 +9,30 @@
 		<!-- 
 		function loadText()
 		{
+			// get by serveur
+			var listeInscrits =
+			[
+				["Truc", false, "06 xx xx xx xx"], 
+				["Machin", true, "06 xx xx xx xx"],
+				["Bidule", false, "06 xx xx xx xx"],
+				["Yp", false, "06 xx xx xx xx"]
+			];
+			var liste = document.getElementById("liste_inscrits");
+			for(index in listeInscrits)
+			{
+				var li = document.createElement("li");
+				var a = document.createElement("a");
 
+				a.innerText = listeInscrits[index][0];
+				a.href = "contact.html?phone=" + listeInscrits[index][2];
+				li.appendChild(a);
+
+				if(listeInscrits[index][1])
+				{ li.style.color = 'green'; a.style.color = 'green'; }
+				else 
+				{ li.style.color = 'red'; a.style.color = 'red'; }
+				liste.appendChild(li);
+			}
 		}
 		function menu()
 		{ 
@@ -51,10 +74,6 @@
 			<br />
 			Il y a pour le moment <span id="inscrits">4</span> personnes inscrites :
 			<ul id="liste_inscrits" style="text-align:left;">
-				<ol style="color:red;">Truc</ol>
-				<ol style="color:green;">Machin</ol>
-				<ol style="color:red;">Bidule</ol>
-				<ol style="color:red;">Yp</ol>
 			</ul>
 		</div>
 
