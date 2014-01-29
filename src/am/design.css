@@ -1,0 +1,29 @@
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover { color: red; }
+
+form
+{
+	text-align: center;
+	margin: 15%;
+	padding: 3%;
+}
+
+h1
+{
+	text-align: center;
+}
+
+input
+{
+	color: gray;
+}
+
+input:focus;
+{
+	color:black;
+}
