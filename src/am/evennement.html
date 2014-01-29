@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>Evennement</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<script type="text/javascript">
+		<!-- 
+		function loadText()
+		{
+
+		}
+		function menu()
+		{ 
+			var menu = document.getElementById("menu");
+			if(menu.style.display == 'none')
+				menu.style.display = 'inline';
+			else menu.style.display = 'none';
+		}
+		-->
+		</script>
+	</head>
+	<body onload="loadText();">
+		<header>
+			<span onclick="menu();">Menu</span>
+			<div id="menu" style="display:none;">
+				<a href="apropos.html">Informations</a>
+				<a href="evennement.html">Evennement</a>
+				<a>Deconnexion</a>
+			</div>
+		</header>
+		<h1>Evennement</h1>
+
+
+		<div id="infos" style="text-align:center;">
+
+			Course le <span id="date">7 Decembre 2013</span> <br />
+			de <span id="Hdebut">10H</span>  a <span id="Hfin">17H</span> <br />
+			Rendez vous <span id="lieu"></span> <br />
+
+			En cas de soucis : <br />
+			<span id="contact_nom">Tata Yet</span> ( <span id="contact_mail">tata.yet@u-psud.fr</span> ) <br />
+			<span id="contact_phone">06 xx xx xx xx</span> <br />
+
+			<br />
+
+			Le tour fait actuellement <span id="tour_taille">5</span>km et vous avez <span id="tour_temps">22</span> minutes
+			<br />
+			<span id="tour_infos">note : pentus </span>
+			<br />
+			Il y a pour le moment <span id="inscrits">4</span> personnes inscrites :
+			<ul id="liste_inscrits" style="text-align:left;">
+				<ol style="color:red;">Truc</ol>
+				<ol style="color:green;">Machin</ol>
+				<ol style="color:red;">Bidule</ol>
+				<ol style="color:red;">Yp</ol>
+			</ul>
+		</div>
+
+	</body>
+</html>

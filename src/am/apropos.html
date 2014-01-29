@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>A Propos</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<script type="text/javascript">
+		<!-- 
+		function loadText()
+		{
+			var text = "<p>Ceci regroupe les differentes informations</p>";
+			// load from serveur
+			document.getElementById("infos").innerHTML = text;
+		}
+		function menu()
+		{ 
+			var menu = document.getElementById("menu");
+			if(menu.style.display == 'none')
+				menu.style.display = 'inline';
+			else menu.style.display = 'none';
+		}
+		-->
+		</script>
+	</head>
+	<body onload="loadText();">
+		<header>
+			<span onclick="menu();">Menu</span>
+			<div id="menu" style="display:none;">
+				<a href="apropos.html">Informations</a>
+				<a href="evennement.html">Evennement</a>
+				<a>Deconnexion</a>
+			</div>
+		</header>
+		<h1>Informations</h1>
+		<div id="infos" style="text-align:center;">
+		</div>
+
+	</body>
+</html>
