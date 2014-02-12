@@ -1,7 +1,52 @@
 #mainLogo
 {
+	height:80px;
+}
+
+#underLogo
+{
 	height:100px;
-	border:"1px solid black";
+	width:100%;
+	margin-bottom : 10px;
+}
+
+#buttonList
+{
+	height:80px;
+	border:1px solid black;
+}
+
+.button1
+{
+	height:80px;
+	width: 25%;
+	border:1px solid black;
+	float:left;
+}
+
+.button2
+{
+	height:80px;
+	width: 33%;
+	border:1px solid black;
+	float:left;
+}
+
+.underLogoTitle
+{
+	height:100px;
+	float: left;
+	width:70%;
+	border:1px solid black;
+}
+.underLogoText
+{
+	height:100px;
+	float: left;
+	text-align :center;
+	width:28%;
+	border:1px solid black;
+	margin-left:1px
 }
 
 .listItem
@@ -24,6 +69,21 @@
 	height:50px;
 	width:50px;
 	float: left;
+}
+
+.listContainer
+{
+	height:300px;
+	border:"1px solid black";
+	text-align:center;
+}
+.listItem2
+{
+	height:30px;
+	border:"1px solid black";
+	margin-bottom: 1px;
+	text-align:center;
+	width:90%;
 }
 
 h1 { text-align: center; }
