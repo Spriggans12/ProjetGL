@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>Menu principale</title>
+		<link rel="stylesheet" type="text/css" href="design2.css">
+		<script type="text/javascript">
+		<!--
+			function onSelect(name)
+			{
+				switch (name)
+				{
+					case "Infos" : window.location.href="http://www.baidu.com";break;
+					case "Classment" : window.location.href="http://www.baidu.com";break;
+					case "Defi" : window.location.href="http://www.baidu.com";break;
+					case "Profil" : window.location.href="http://www.baidu.com";break;
+					case "propos" :window.location.href="http://www.baidu.com";break;
+					case "Deconnecter" : window.location.href="http://www.baidu.com";break;
+				}
+			}
+		-->
+		</script>
+	</head>
+	<body>
+	<img id = "mainLogo" src=""></img>
+	<div class = "listItem" name = "Infos" id = "Infos" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = "">  </img>  <div class = "listItemText"> Infos </div>
+	</div>
+	
+	<div class = "listItem" id = "Parcours" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = ""><div class = "listItemText"> Parcours</div>
+	</div>
+	
+	<div class = "listItem" id = "Classment" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = "" ><div class = "listItemText"> Classment</div>
+	</div>
+	
+	<div class = "listItem"> 
+	</div>
+	
+	<div class = "listItem" id = "Defi" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = ""><div class = "listItemText"> Défi</div>
+	</div>
+	
+	<div class = "listItem" id = "Profil" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = ""><div class = "listItemText"> Profil</div>
+	</div>
+	
+	<div class = "listItem"> 
+	</div>
+	
+	<div class = "listItem" id = "propos" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = ""><div class = "listItemText"> A propos</div>
+	</div>
+	
+	<div class = "listItem" id = "Deconnecter" onClick = "onSelect(this.id)"> 
+		<img class = "listIcon" src = ""><div class = "listItemText"> Déconnecter</div>
+	</div>
+		
+	</body>
+</html>
