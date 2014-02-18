@@ -1,0 +1,1 @@
+http://cxf.apache.org/docs/wsdl-to-javascript.html
