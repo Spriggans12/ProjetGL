@@ -1,6 +1,7 @@
 #mainLogo
 {
 	height:80px;
+	width:100%
 }
 
 #underLogo
@@ -30,6 +31,15 @@
 	width: 33%;
 	border:1px solid black;
 	float:left;
+}
+
+.buttonlong
+{
+	height:40px;
+	width: 80%;
+	margin-bottom: 10px;
+	border:1px solid black;
+	text-align:center;
 }
 
 .underLogoTitle

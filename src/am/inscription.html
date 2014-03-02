@@ -33,7 +33,7 @@
 					var listeVille = new Array("PPS", "UPCM", "Orleans"); // get by serveur
 					for (index in listeVille)
 					{
-						liste.options[liste.options.length] = (new Option(listeVille[index], listeVille[index], false, false));
+						liste.options[liste.options.length] = new Option(listeVille[index], listeVille[index], false, false);
 						//villeI.options[villeR.options.length] = new Option(listeVille[index], listeVille[index], false, false);
 					}
 				}

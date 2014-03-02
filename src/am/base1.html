@@ -1,35 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 	<title>Base1</title>
-	<link href="styles/style.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="styles/base.css" rel="stylesheet" type="text/css" media="screen" />
-	<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
-	<script type="text/javascript" src="scripts/jquery.pikachoose.js"></script>
-	<script type="text/javascript">
-				$(document).ready(function() {
-				$("#pikame").PikaChoose();	});
-	</script>
+	<link rel="stylesheet" type="text/css" href="design.css">
 	<style type="text/css">
 	div#space{height:300px;}
     div#use {height:80px;}
 	</style>
+	
+	<script type="text/javascript">
+		<!--
+
+			function inputEnter(obj)
+			{
+				if(obj.value == obj.name)
+				{
+					obj.value = "";
+					obj.style.color = 'black';
+				}
+			}
+			function inputLeave(obj)
+			{
+				if(obj.value == "")
+				{
+					obj.value = obj.name;
+					obj.style.color = 'gray';
+				}
+			}
+			-->
+		</script>
 	</head>
 <body>
-<div id = "space" style="text-align:center">
+<form id="formNewAccount" name="formNewAccount" method="post" >
+<div  style="text-align:center">
 </div>
-<div id = "use" style="text-align:center">
-<textarea name="Numero de telephone" ></textarea>
+<div  style="text-align:center">
+<input type = "text" name="Numero de telephone" value="Numero de telephone" onfocus="inputEnter(this)" onblur="inputLeave(this)" ></input>
+<br />
 </div>
-<div id = "use" style="text-align:center">
-<textarea name="Mot de passe"></textarea>
+<div style="text-align:center">
+<input type = "text" name="Mot de passe" value="Mot de passe" onfocus="inputEnter(this)" onblur="inputLeave(this)"></input>
+<br />
 </div>
-<div id = "use" style="text-align:center">
-<textarea name="Confirmation de mot de passe"></textarea>
+<div  style="text-align:center">
+<input type = "text" name="Confirmation de mot de passe" value="Confirmation de mot de passe" onfocus="inputEnter(this)" onblur="inputLeave(this)"></input>
+<br />
 </div>
-<div id = "use" style="text-align:center">
-<a class="button" href="" align = "center" >Creer un Compte</a>
+<div  style="text-align:center">
+<input type = "submit" value = "Creer un compte" onfocus="inputEnter(this)" onblur="inputLeave(this)"></input>
 </div>
+</form>
 </body>
 </html>
