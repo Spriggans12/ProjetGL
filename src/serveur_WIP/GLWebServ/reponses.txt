@@ -1,0 +1,1 @@
+On peut savoir si une réponse est liée à une requête via le correlation ID qui est à la même valeur que le message.

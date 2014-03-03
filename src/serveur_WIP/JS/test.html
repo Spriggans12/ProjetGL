@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta content="utf-8" http-equiv="encoding">
+<meta content="text/xml;charset=utf-8" http-equiv="Content-Type">
+<script type="text/javascript" src="js/AreaService.js"></script>
+<script language="javascript">
+	function call() {
+	webservice__Area_webservice__AreaPort ();
+		var side = sideid.value;
+		var side1 = sideid1.value;
+		var req = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+				+ "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://core.codon.com/\"><soapenv:Body><web:rectangle><length>"
+				+ side
+				+ "</length><breadth>"
+				+ side1
+				+ "</breadth></web:rectangle></soapenv:Body></soapenv:Envelope>";
+		//var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+		//var reqXML = xmlDoc.loadXML(req);
+		var xmlDoc = document.implementation.createDocument("", "", null);
+		xmlDoc.async = false;
+		xmlDoc.onload = req;
+		//var reqXML = xmlDoc.load(req);
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+			console.log(xmlhttp);
+			console.log(xmlhttp.responseXML);
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4) {
+				console.log("status = "+xmlhttp.status);
+				var response = xmlhttp.responseXML;
+				console.log("test");
+				console.log(response.selectSingleNode(".//return").text);
+				console.log("======" + response);
+			}
+		}
+		var soapaction = "http://core.example.com/rectangle";
+		xmlhttp.open("GET", "http://localhost:8090/area?wsdl", true);
+		xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+		xmlhttp.setRequestHeader("SOAPAction", soapaction);
+		xmlhttp.send(req);
+	}
+</script>
+</head>
+<body>
+	Side Length:
+	<input type="text" id="sideid"></input> Length:
+	<input type="text" id="sideid1"></input>
+	<button onclick="call();">area of square</button>
+</body>
+</html>

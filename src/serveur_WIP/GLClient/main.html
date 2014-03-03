@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>Test Ajax Webservice</title>
+		<script type="text/javascript">			
+			// Permet de créer un XmlHttpRequest
+			function createXmlHttpRequest()
+			{
+				var xmlHttpRequest;
+				if (window.XMLHttpRequest)
+				{
+					xmlHttpRequest = new XMLHttpRequest();
+				}
+				else if (window.ActiveXObject)
+				{
+					xmlHttpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				else
+				{
+					throw new Error("Could not create XMLHttpRequest object.");
+				}
+				return xmlHttpRequest;
+			}
+ 
+			// Appel du webservice
+			function callWebService()
+			{
+				var xmlHttpRequest = createXmlHttpRequest();
+				xmlHttpRequest.open("POST", "http://www.webservicex.net/LondonGoldFix.asmx/GetLondonGoldAndSilverFix", true);
+				xmlHttpRequest.onreadystatechange = function()
+{
+					/*
+					 *	READY_STATE_UNINITIALIZED=0; 
+					 *	READY_STATE_OPEN=1;
+					 *	READY_STATE_SENT=2; 
+					 *	READY_STATE_RECEIVING=3;
+					 *	READY_STATE_LOADED=4;
+					 */		
+ 
+					if (xmlHttpRequest.readyState == 0)
+					{
+						document.getElementById('out').innerHTML += "READY_STATE_UNINITIALIZED" + "<br />";
+					}
+ 
+					else if (xmlHttpRequest.readyState == 1)
+					{
+						document.getElementById('out').innerHTML += "READY_STATE_OPEN" + "<br />";
+					}
+ 
+					else if (xmlHttpRequest.readyState == 2)
+					{
+						document.getElementById('out').innerHTML += "READY_STATE_SENT" + "<br />";
+ 
+					}
+ 
+					else if (xmlHttpRequest.readyState == 3)
+					{
+						document.getElementById('out').innerHTML += "READY_STATE_RECEIVING" + "<br />";
+					}
+ 
+					else if (xmlHttpRequest.readyState == 4)
+					{				
+						if (xmlHttpRequest.status == 200 || xmlHttpRequest.status == 0)
+						{
+							document.getElementById('out').innerHTML += xmlHttpRequest.responseText + "<br />";
+						}
+						else
+						{
+							document.getElementById('out').innerHTML += "Erreur état = " + xmlHttpRequest.status + "<br />";
+						}
+					}
+					else
+					{
+						document.getElementById('out').innerHTML += xmlHttpRequest.readyState + "<br />";
+					}
+				}
+ 
+				xmlHttpRequest.send(null);
+			}
+ 
+			// Lance le scénario de test
+			function run()
+			{
+				callWebService();
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<input type="button" value="Cliquez ici" href="#" onclick="javascript:run()" />
+			<p id="out" />
+		</div>
+	</body>
+</html>

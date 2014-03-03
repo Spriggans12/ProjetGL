@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="cxf wsdl2java" basedir="." default="cxfWSDLToJava">   
+   <property name="cxf.home" location ="/home/bat-filibuster/Documents/Cours/CI5/InfoEntr/apache-cxf-2.7.7"/>
+   <property name="wsdl" value="http://localhost:8090/connexion?wsdl"/>
+        
+   <path id="cxf.classpath">
+      <fileset dir="${cxf.home}/lib">
+         <include name="*.jar"/>
+      </fileset>
+   </path>
+      
+   <target name="cxfWSDLToJava">
+      <java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true">
+         <arg value="-validate"/>
+         <arg value="-client"/>
+         <arg value="-d"/>
+         <arg value="src"/>
+         <arg value="${wsdl}"/>
+         <classpath>
+            <path refid="cxf.classpath"/>
+         </classpath>
+      </java>
+   </target>
+</project>
