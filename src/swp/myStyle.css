@@ -4,6 +4,20 @@ body {
         Times, serif;
   color: black;
   background-color: #ADD8E6 }
+ ul.centre {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 43em }
+  ul.text {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 4em;
+  right: 2em;
+  width: 30em }
 ul.navbar {
   list-style-type: none;
   padding: 0;
@@ -17,9 +31,10 @@ ul.navbar {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 2em;
-  right: 2em;
+  top: 18em;
+  right: 12em;
   width: 9em }
+  
 h1 {
   font-family: Helvetica, Geneva, Arial,
         SunSans-Regular, sans-serif }
