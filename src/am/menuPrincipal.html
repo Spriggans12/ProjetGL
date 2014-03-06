@@ -10,12 +10,12 @@
 			{
 				switch (name)
 				{
-					/*case "Infos" : window.location.href="contact.html";break;*/
+					case "Infos" : window.location.href="evenement.html";break;
 					case "Parcours" : window.location.href="parcours.html";break;
 					case "Classement" : window.location.href="classement.html";break;
 					case "Profil" : window.location.href="profil.html";break;
-					case "propos" :window.location.href="apropos.html";break;
-					case "Deconnecter" : break;
+					case "Apropos" :window.location.href="apropos.html";break;
+					case "Deconnecter" : window.location.href="login.html"; break;
 				}
 			}
 		-->
@@ -23,12 +23,11 @@
 	</head>
 	<body>
 	<img id = "mainLogo" src="images/logo.jpg"></img>
-	<!--
 	<div style="width:100%; height:70%; background:url('images/bg.jpg') no-repeat; margin-left: 0; margin-top: 0">
 	<div class = "listItem" name = "Infos" id = "Infos" onClick = "onSelect(this.id)"> 
-		<img class = "listIcon" src = "images/info.jpg">  </img>  <div class = "listItemText"> Infos </div>
+		<img class = "listIcon" src = "images/info.jpg">  </img>  <div class = "listItemText"> Infos Evenement </div>
 	</div>
-	-->
+
 	<div class = "listItem" id = "Parcours" onClick = "onSelect(this.id)"> 
 		<img class = "listIcon" src = "images/parcours.jpg"><div class = "listItemText"> Parcours</div>
 	</div>
@@ -48,7 +47,7 @@
 	<div class = "listItem"> 
 	</div>
 	
-	<div class = "listItem" id = "propos" onClick = "onSelect(this.id)"> 
+	<div class = "listItem" id = "Apropos" onClick = "onSelect(this.id)"> 
 		<img class = "listIcon" src = "images/apropos.jpg"><div class = "listItemText"> A propos</div>
 	</div>
 	

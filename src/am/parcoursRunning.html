@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <link rel="stylesheet" type="text/css" href="design2.css">
+  <title>Parcours</title>
+  <style type="text/css">
+      div
+      {
+          width:100%;
+          height:25%;
+          margin: 5%;
+          text-align:center;
+      }
+  </style>
+  
+  <script type = 'text/javascript'>
+  
+  var idInterval = 0;            
+  var interval = 1000; 
+  var activate = false;
+
+  function GPSTrace(isActivate) 
+  { 
+       var input = document.getElementById("GPSCurrentState");
+       if(isActivate)
+       {
+          input.innerHTML = "Actif";
+       }
+       else 
+       {
+        input.innerHTML = "Desactive";
+       }
+  } 
+  
+  // get date from serveur
+  idInterval = window.setInterval(function(){GPSTrace(activate)}, interval); 
+  
+
+    function GPSSwitch()
+    {
+       var input = document.getElementById("inputGPSSwitch");
+       if(input.value == "Activation GPS")
+        { input.value = "Desactivation GPS"; activate = true; }
+       else
+        { input.value = "Activation GPS"; activate = false; }
+    }
+  
+  </script>
+</head>
+
+<body>
+    <header>
+      <a href="menuPrincipal.html">Menu</a>
+    </header>
+  <img id = "mainLogo" src="images/logo.jpg"></img>
+
+  <div>
+    GPS : <span id="GPSCurrentState">Desactive</span> <br />
+  </div>
+
+  <div id="time">
+    Distance Parcourue : <br />
+  </div>
+  <br />
+
+  <div id="GPSSwitch">
+    <input id="inputGPSSwitch" value="Activation GPS" type="button" onClick = "GPSSwitch()" />
+  </div>
+
+</body>
+</html>
