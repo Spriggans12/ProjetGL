@@ -20,20 +20,141 @@
   var idInterval = 0;            
   var interval = 1000; 
   var activate = false;
-
+  var watchPositionID;
+  var watching = false;
   function GPSTrace(isActivate) 
   { 
        var input = document.getElementById("GPSCurrentState");
        if(isActivate)
        {
+        if(navigator.geolocalisation && !watching)
+        {
           input.innerHTML = "Actif";
+          watching = true;
+          watchPositionID = navigator.geolocation.watchPosition(trace, errorTrace, {maximumAge:60000,enableHighAccuracy:true});
+        }
+        else input.innerHTML = "non supporte par le navigateur"
        }
        else 
        {
-        input.innerHTML = "Desactive";
+        if(watching)
+        {
+          watching = false;
+          navigator.geolocation.clearWatch(watchPositionID);
+        }
+          input.innerHTML = "Desactive";
        }
   } 
-  
+  var distanceValidee = 0;
+  var distanceEnCours = 0;
+  var tempsReferenceEnCours = 0;
+  var startTemps;
+  var courseEnCours = false;
+  var pointPrecedent;
+
+  function trace(position)
+  {
+    var positionBase, positionArrivee; // get from server
+
+    var currLat = position.coords.latitude;
+    var currLong = position.coords.longitude;
+    //position.coords.altitude
+
+    // check départ
+    if(Math.abs(distanceBetween(currLat, currLong, positionBase.lat, positionBase.long)) < 50)
+    {
+      tempsReferenceEnCours = 0;
+      courseEnCours = true;
+      startTemps = new Date();
+      pointPrecedent = position.coords;
+    }
+
+    // tous le temps
+    if(courseEnCours)
+    {
+        // ajout de la distance parcourue
+        distanceEnCours += distanceBetween(currLat, currLong, pointPrecedent.latitude, pointPrecedent.longitude);
+
+        //update serveur du compteur
+
+        tempsReferenceEnCours = (startTemps.getTime() - (new Date()).getTime());
+        //ajout du temps mis
+
+
+        // update distances et temps :
+        document.getElementById("distanceActuelle").innerHTML = distanceEnCours + "m";
+        var millisec = parseInt(tempsReferenceEnCours);
+        var second = millisec / 1000;
+        var minutes = second / 60; 
+        millisec %= 1000;
+        second %= 60;
+        document.getElementById("timer").innerHTML = minutes + "m " + second + "s " + millisec + "ms";
+        document.getElementById("distanceTotale").innerHTML = distanceValidee + "m";
+    }
+
+    // check arrivé
+    if(Math.abs(distanceBetween(currLat, currLong, positionArrivee.lat, positionArrivee.long)) < 50)
+    {
+
+      var tempsLimite; // get from server
+      if(tempsReferenceEnCours < tempsLimite)
+      {
+        var tailleTour = 1000; // get from server
+        if(distanceEnCours <= tailleTour*1.15) // 15% de précision, exigence E34
+          distanceValidee += tailleTour;
+        // update des distances sur le serveur
+      }
+      // sinon trop de temps passé, on réinitialise
+      
+      courseEnCours = false;
+      distanceEnCours = 0;
+      tempsReferenceEnCours = 0;
+    }
+
+
+
+
+  }
+  // retourne la distance en metre a vol d'oiseau entre deux coord. gps
+function distanceBetween(lat1, long1, lat2, long2)
+{
+  var earth_radius = 6378137;   // Terre = sphère de 6378km de rayon
+  var rlo1 = deg2rad(long1);
+  var rla1 = deg2rad(lat1);
+
+  var rlo2 = deg2rad(long2);
+  var rla2 = deg2rad(lat2);
+
+  var dlo = (rlo2 - rlo1) / 2;
+  var dla = (rla2 - rla1) / 2;
+  var a = (sin($dla) * sin($dla)) + cos($rla1) * cos($rla2) * (sin($dlo) * sin($dlo));
+  var d = 2 * atan2(sqrt($a), sqrt(1 - $a));
+  return (earth_radius * d);
+
+}
+function deg2rad(degrees)
+{ return degrees * (Math.PI/180); }
+
+  function errorTrace(error)
+  {
+    var info = document.getElementById("GPSCurrentState");
+    switch(error.code) 
+    {
+      case error.TIMEOUT:
+        info.innerHTML += "Timeout !";
+        break;
+      case error.PERMISSION_DENIED:
+        info.innerHTML += "Vous n’avez pas donné la permission";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        info.innerHTML += "La position n’a pu être déterminée";
+        break;
+      case error.UNKNOWN_ERROR:
+        info.innerHTML += "Erreur inconnue";
+        break;
+    }
+  }
+
   // get date from serveur
   idInterval = window.setInterval(function(){GPSTrace(activate)}, interval); 
   
@@ -60,8 +181,16 @@
     GPS : <span id="GPSCurrentState">Desactive</span> <br />
   </div>
 
-  <div id="time">
-    Distance Parcourue : <br />
+  <div>
+    Distance Actuelle : <span id="distanceActuelle" /> <br />
+  </div>
+  <br />
+  <div>
+    Temps de course : <span id="timer" /> <br />
+  </div>
+  <br />
+  <div>
+    Distance Parcourue : <span id="distanceTotale" /><br />
   </div>
   <br />
 
