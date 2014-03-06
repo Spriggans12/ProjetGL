@@ -1,70 +1,191 @@
-<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD align="right"><TITLE>Compte</TITLE>
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD align="right">
+<TITLE>Compte</TITLE>
 <META content="text/html; charset=UTF-8" http-equiv=Content-Type>
-<META name=GENERATOR content="MSHTML 11.00.9600.16476"></HEAD>
+<META name=GENERATOR content="MSHTML 11.00.9600.16476">
+<script>
+	function getUserInfo() {
+
+		var userInfo = {};
+		userInfo.name = "user";
+		userInfo.tel = "00 00 00 00 00";
+		userInfo.mail = "user@gmail.com";
+		userInfo.villeRatta = "Orsay";
+		userInfo.villeInscript = "Orsay";
+		userInfo.status = "active";
+
+		return userInfo;
+
+	}
+	
+	function getBlacklist(){
+		var users = {};
+
+
+		users.name1 = "user1"
+		users.name2 = "user2"
+		users.name3 = "user3"
+
+		return users;
+	}
+
+	function getListeCompte() {
+		var comptes = {};
+
+		comptes.user1 = {};
+		comptes.user2 = {};
+		comptes.user3 = {};
+
+		comptes.user1.name = "user1"
+		comptes.user1.status = "active"
+		comptes.user2.name = "user2"
+		comptes.user2.status = "active"
+		comptes.user3.name = "user3"
+		comptes.user3.status = "active"
+
+		return comptes;
+	}
+	var active = true
+	function changeStatus(line) {
+		var state = document.getElementById("status1").innerHTML;
+		if(active){
+			active=!active;
+			switch(line){
+			case 1:
+				document.getElementById("status1").innerHTML = "innactive";break;
+			case 2:
+				document.getElementById("status2").innerHTML = "innactive";break;
+			case 3:
+				document.getElementById("status3").innerHTML = "innactive";break;
+			}
+		}
+		else{
+			active=!active;
+			switch(line){
+			case 1:
+				document.getElementById("status1").innerHTML = "active";break;
+			case 2:
+				document.getElementById("status2").innerHTML = "active";break;
+			case 3:
+				document.getElementById("status3").innerHTML = "active";break;
+			}
+			}
+	}
+</script>
+</HEAD>
 <BODY bgColor=#10609f>
-<DIV id=account1>
-<P align=right><FONT color=#ffffff>
-<SCRIPT language=javascript>
+	<DIV id=account1>
+		<P align=right>
+			<a href="Compte.html"> <FONT color=#ffffff> <SCRIPT
+						language=javascript>
 				var n;
-				n = "";
-				if (n == "") {
+				n = getUserInfo();
+				if (n.name == "") {
 					document.write("[NAME]");
 				} else {
-					document.write(n);
+					document.write(n.name);
 				}
 			</SCRIPT>
-</FONT><BR align="right"><A href="login.html" color="#000000">D</A><A href="login.html" color="#000000">isconnect</A> <BR><BR></P></DIV>
-<DIV><BR>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <table width="80%" border="0">
-    <tr>
-      <th width="261" height="48" scope="row"><p><A href="http:///" target=_self><IMG src="image/Moderation.png" name="Moderation" border=0 id="Moderation" title=Moderation></A></p>
-      <p><a href="http:///" target=_self><img src="image/Partenariats.png" name="Partenariats" border=0 id="Partenariats" title=partenariat></a></p></th>
-      <th colspan="2" scope="row">&nbsp;</th>
-    </tr>
-    <tr>
-      <th scope="row">&nbsp;</th>
-      <th width="488" scope="row"><table width="81%" height="75" border="0">
-        <caption b>
-        <font color="#FFFFFF"> Liste des comptes </font>
-        </caption>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-        </tr>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-        </tr>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-        </tr>
-      </table></th>
-      <th width="462" scope="row"><table width="81%" height="75" border="0">
-        <caption b>
-        <font color="#FFFFFF">Blacklist </font>
-        </caption>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          </tr>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          </tr>
-        <tr>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          <td bgcolor="#FFFFFF">&nbsp;</td>
-          </tr>
-      </table></th>
-    </tr>
-  </table>
-  <p><BR>
-  </p>
-</DIV>
-<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A href="http:///" target=_self></A></DIV>
-</BODY></HTML>
+			</FONT>
+			</a> </FONT><BR align="right"> <A href="login.html" color="#000000">D</A><A
+				href="login.html" color="#000000">disconnect</A> <BR> <BR>
+		</P>
+	</DIV>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<table width="80%" border="0" id="table1">
+		<tr>
+			<th width="20%" height="48" scope="row"><p>
+					<A href="Moderation.html" target=_self><IMG
+						src="image/Moderation.png" name="Moderation" border=0
+						id="Moderation" title=Moderation></A>
+				</p>
+				<p>
+					<a href="Partenariats.html" target=_self><img
+						src="image/Partenariats.png" name="Partenariats" border=0
+						id="Partenariats" title=partenariat></a>
+				</p></th>
+			<th colspan="2" scope="row">&nbsp;</th>
+		</tr>
+		<tr>
+			<th scope="row">&nbsp;</th>
+			<th width="50%" scope="row">
+				<table width="81%" height="75" border="0">
+					<caption b>
+						<font color="#FFFFFF"> Liste des comptes </font>
+					</caption>
+					<thead>
+						<tr>
+							<th>ID utilisateur</th>
+							<th>Status</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user1.name);
+							</script></td>
+							<td id="status1" bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user1.status);
+							</script></td>
+							<td bgcolor="#FFFFFF"><script>
+									document.write("<button onclick='changeStatus(1)'>Modifier");
+							</script></td>
+						</tr>
+						<tr>
+							<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user2.name);
+							</script></td>
+							<td id="status2" bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user2.status);
+							</script></td>
+							<td bgcolor="#FFFFFF"><button onclick='changeStatus(2)'>Modifier</td>
+						</tr>
+						<tr>
+							<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user3.name);
+							</script></td>
+							<td id="status3" bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getListeCompte().user3.status);
+							</script></td>
+							<td bgcolor="#FFFFFF"><button onclick='changeStatus(3)'>Modifier</td>
+						</tr>
+					</tbody>
+				</table>
+			</th>
+			<th width="50%" scope="row"><table width="81%" height="75"
+					border="0">
+					<caption b>
+						<font color="#FFFFFF">Blacklist </font>
+					</caption>
+					<tr>
+						<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getBlacklist().name1);
+							</script></td>
+						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+					</tr>
+					<tr>
+						<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getBlacklist().name2);
+							</script></td>
+						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+					</tr>
+					<tr>
+						<td bgcolor="#FFFFFF"><script type="text/javascript">
+								document.write(getBlacklist().name3);
+							</script></td>
+						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+					</tr>
+				</table></th>
+		</tr>
+	</table>
+	<p>
+		<BR>
+	</p>
+	</DIV>
+	<DIV>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A
+			href="http:///" target=_self></A>
+	</DIV>
+</BODY>
+</HTML>

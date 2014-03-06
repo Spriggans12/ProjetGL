@@ -10,10 +10,31 @@
 
 <head align="right">
 
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <title>Login</title>
+<script language="javascript">
+	function verify() {
+		var id = document.getElementById("user_name").value;
+		var psw = document.getElementById("pw").value;
+		var profil = document.getElementById("profil").value;
 
+		var idServ = "user";
+		var pswServ = "123456";
+		var profilServ = "";
+		var newUrl = "Compte.html";
+		console.log(id);
+		console.log(psw);
+		if (id == idServ && psw == pswServ) {
+			console.log("true");
+			window.location=newUrl;
+		}
+		else{
+			alert("Nom d'utilisateur ou mot de pass incorrect!")
+		}
+
+	}
+</script>
 </head>
 
 <body bgcolor="#10609F">
@@ -62,7 +83,8 @@
 			<tr align="center">
 
 				<td height="35" align="center"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="image" src="image/login.png" name="Submit" value="Login" />
+						<img src="image/login.png" name="Submit"
+						value="Login" onclick="verify()" />
 				</label></td>
 
 			</tr>

@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta content="utf-8" http-equiv="encoding">
+<meta content="text/xml;charset=utf-8" http-equiv="Content-Type">
+
+<script type="text/javascript" src="js/cxf-utils.js"></script>
+<script type="text/javascript" src="js/AreaService.js"></script>
+
+<script>
+	
+	//function call() {
+		var helloservice = new webservice__hello();
+		//helloservice.setArg0("toto");
+		var service = new webservice__Area_webservice__AreaPort();
+		console.log("b4 send");
+		console.log(service);
+		var response = service.hello(test(), noSuccess());
+		console.log(response);
+		function test() {
+			console.log("success");
+		}
+		function noSuccess() {
+			console.log("nosuccess");
+		}
+	//}
+</script>
+</head>
+<body>
+	Side Length:
+	<input type="text" id="sideid"></input> Length:
+	<input type="text" id="sideid1"></input>
+	<button onclick="call()">area of square</button>
+</body>
+</html>
