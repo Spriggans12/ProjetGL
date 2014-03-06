@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>Profil</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<link rel="stylesheet" type="text/css" href="design2.css">
+		<script type="text/javascript">
+		<!--
+
+			function inputEnter(obj)
+			{
+				if(obj.value == obj.name)
+				{
+					obj.value = "";
+					obj.style.color = 'black';
+				}
+			}
+			function inputLeave(obj)
+			{
+				if(obj.value == "")
+				{
+					obj.value = obj.name;
+					obj.style.color = 'gray';
+				}
+			}
+
+			function loadList(id)
+			{
+				var liste = document.getElementById(id);
+				liste.options.length =0;
+				var listeVille = new Array("PPS", "UPCM", "Orleans"); // get by serveur
+				for (index in listeVille)
+				{
+					liste.options[liste.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+					//villeI.options[villeR.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+				}
+				
+			}
+			
+			function load(){
+				var tele = document.getElementById("user_phone");
+				var mel = document.getElementById("user_mail");
+				var prenom = document.getElementById("user_surname");
+				var nom = document.getElementById("user_name");
+				var villeRa = document.getElementById("VilleRattachement");
+				var villeIn = document.getElementById("VilleInscription");
+				/*Prendre les valeurs du serveur*/
+				var stele = "chao";
+				var smel = "chao@c.com";
+				var snom = "c";
+				var sprenom = "hli";
+				var svilleRa = "PPS";
+				var svileIn = "PPS";
+				
+				tele.value = stele;
+				mel.value = smel;
+				prenom.value = sprenom;
+				nom.value = snom;
+				
+				var listeVille = new Array("PPS", "UPCM", "Orleans"); // get by serveur
+				for (index in listeVille)
+				{
+					villeIn.options[villeIn.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+					villeRa.options[villeRa.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+					if(villeRa.options[villeRa.options.length].text == "PPS")//Get from server
+					{
+						villeRa.options[villeRa.options.length].defaultSelected = true;
+					}
+					if(villeIn.options[villeIn.options.length].text == "UPCM")//Get from server
+					{
+						villeIn.options[villeIn.options.length].defaultSelected = true;
+					}
+				}
+				
+			}
+			
+			function submit()
+			{
+				//connecter le serveur
+				window.location.href="menuPrincipale.html";
+			}
+			
+			function quit()
+			{
+				window.location.href="menuPrincipale.html";
+			}
+			
+			-->
+		</script>
+	</head>
+	<body onload="load()">
+
+		<h2>Profil</h2>
+		<form id="formNewAccount" name="formNewAccount" method="post" >
+			<div>
+
+				<!-- Téléphone -->
+				<input value="Telephone" name="Telephone" type="tel" id="user_phone" maxlength="10"
+					   onfocus="inputEnter(this)" onblur="inputLeave(this)" />
+				<br />
+
+				<!-- Email -->
+				<input  value="Email" name="Email" type="email" id="user_mail"
+						onfocus="inputEnter(this)" onblur="inputLeave(this)" />
+				<br />
+
+				<!-- Nom -->
+				<input  value="Nom" name="Nom" type="text" id="user_name" 
+						onfocus="inputEnter(this)" onblur="inputLeave(this)" />
+				<br />
+
+				<!-- Prenom -->
+				<input  value="Prenom" name="Prenom" type="text" id="user_surname" 
+						onfocus="inputEnter(this)" onblur="inputLeave(this)" />
+				<br />
+
+				<!-- Ville de rattachement -->
+				Ville de rattachement <br />
+				<select name="VilleRattachement" id="VilleRattachement" onfocus="loadList(this.id)">
+				</select>
+				<br />
+
+				<!-- Ville d’inscription -->
+				Ville d inscription <br />
+				<select name="VilleInscription" id="VilleInscription" onfocus="loadList(this.id)">
+				</select>
+				<br />
+
+				<!-- Photo -->
+				Photo
+				<input  value="Telephone" name="photo" type="file" id="photo" />
+				<br />
+				<br />
+				<input type = "button" value = "Soumettre"></input>
+				<input type = "button" value = "Quitter" onClick = "quit()"></input>
+			</div>
+		</form>
+
+	</body>
+</html>

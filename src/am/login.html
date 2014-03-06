@@ -5,6 +5,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="design.css">
+		
+		<script type = "text/javascript">
+	
+		function log()
+		{
+			window.location.href="menuPrincipale.html";
+		}
+	</script>
 	</head>
 	<body>
 
@@ -16,13 +24,13 @@
 				Identifiant
 				<br />
 
-				<input name="user_name" type="text" id="user_name" />
+				<input name="user_name" type="text" id="user_name" ></input>
 				<br />
 				Mot de passe
 				<br />
-				<input name="pw" type="password" id="pw" />
+				<input name="pw" type="password" id="pw" ></input>
 				<br />
-				<input value="login" type="submit" />
+				<input value="login" type="button" onClick = "log()"></input>
 				<br />
 				<br />
 				<a href="inscription.html">creer un compte</a>

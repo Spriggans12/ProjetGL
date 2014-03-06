@@ -6,10 +6,25 @@
 		<link rel="stylesheet" type="text/css" href="design2.css">
 		<script type="text/javascript">
 		<!--
+			var son;
+		
 			function initList()
 			{
 				var container = document.getElementById("container");
-				var list = new Array("Orsay", "Massy", "Paris");
+				var selectVille = document.getElementById("b2");
+				
+				var listeVille = new Array("Tous","PPS", "UPCM", "Orleans"); // get by server
+				
+				selectVille.options.length = 0;
+				for (index in listeVille)
+				{
+					selectVille.options[selectVille.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+						
+				}
+				selectVille.options[0].defaultSelected = true;
+				
+				container.innerHTML = "";
+				var list = getArray("Tous");//prendre les donn¨¦s du serveur
 				for(var i = 0; i<list.length; i++)
 				{
 					var t = new Object();
@@ -30,33 +45,64 @@
 				}
 			}
 			
+		
+			
+			function changerVille()
+			{
+				var container = document.getElementById("container");
+				var selectVille = document.getElementById("b2");
+				
+				var ville = selectVille.options[selectVille.selectedIndex].text;			
+				while (container.hasChildNodes()) {
+					container.removeChild(container.lastChild);
+				}
+				var list = getArray(ville);//prendre les donn¨¦s du serveur
+			
+				for(var i = 0; i<list.length; i++)
+				{
+					var t = new Object();
+					t.text = list[i];
+					t.tag = i.toString();
+					container.appendChild(createItem(t));
+				}
+			}
+			
 			function createItem(ob)
 			{
 				var item = document.createElement("div");
 				item.innerHTML = ob.text;
 				item.style.width = "100%";
-				item.id = ob.tag;
+				item.id = ob.tag;	
 				item.addEventListener("click", function(){
-					window.location.href="http://www.baidu.com";
+					son = ob.text;
+					window.open("infopp.html");
 				});
 				return item;
+			}
+			
+			function getArray(s)
+			{
+				var listeVille = new Array("Tous","PPS", "UPCM", "Orleans");//get from server
+				switch (s)
+				{
+					case "Tous" : return new Array("Chaoli", "Thomas", "Vincent","Arthur");break;
+					default :  return new Array("Zijian", "Chaoli","Vincent","Arthur");break;
+				}
 			}
 		-->
 		</script>
 	</head>
 	<body onLoad = "initList()">
 		<img id = "mainLogo" src="images/bg.jpg"></img>
-		<div id = "underLogo"style="background:url('images/underlogo.jpg') no-repeat; margin-left: 0; margin-top: 0">
+		<div id = "underLogo" style="background:url('images/underlogo.jpg') no-repeat; margin-left: 0; margin-top: 0">
 			<div src = "" class = "underLogoTitle"></div>
 			<div class = "underLogoText">Orsay</div>
 		</div>
 		<div class = "listContainer" id = "container" > 	
 		</div>
-		<div id = "buttonList">
-			<button class = "button1" id = "b1" onClick = "onSelect(this.id)">Reseau</button>
-			<button class = "button1" id = "b2" onClick = "onSelect(this.id)">Ta ville</button>
-			<button class = "button1" id = "b3" onClick = "onSelect(this.id)">Perso</button>
-			<button class = "button1" id = "b4" onClick = "onSelect(this.id)">Ami</button>
+		<div style = "text-align : center;">
+			<button id = "b1" onClick = "initList()">Classement Generale</button>
+			<select id = "b2" onChange = "changerVille()"></select>
 		</div>
 	</body>
 </html>

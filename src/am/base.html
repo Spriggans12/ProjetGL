@@ -8,15 +8,27 @@
     div#use { text-align: center;}
 	.mybutton{height:50px;width:150px;}
 	</style>
+	<script type = "text/javascript">
+	
+		function signup()
+		{
+			window.location.href="inscription.html";
+		}
+		
+		function login()
+		{
+			window.location.href="login.html";
+		}
+	</script>
 	</head>
 <body>
 <div  style="width:100%;background:url('images/bg1.jpg') no-repeat; margin-left: 0; margin-top: 0">
 <div id = "space" style="text-align:center">
 </div>
 <div id = "use" style="text-align:center">
-<input class = "mybutton" value = "Sign up" type = "submit"></input>
+<input class = "mybutton" value = "Sign up" type = "submit" onClick = "signup()"></input>
 &nbsp
-<input class = "mybutton" value = "Login" type = "submit"></input>
+<input class = "mybutton" value = "Login" type = "submit" onClick = "login()"></input>
 </div>
 </div>
 </body>

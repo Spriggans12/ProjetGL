@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>Profil</title>
+		<link rel="stylesheet" type="text/css" href="design.css">
+		<link rel="stylesheet" type="text/css" href="design2.css">
+		<script type="text/javascript">
+		<!--
+			function getInfo(nom)
+			{
+				var ob = new Object();
+				ob.stele = "chao";
+				ob.smel = "chao@c.com";
+				ob.snom = "c";
+				ob.sprenom = "hli";
+				ob.svilleRa = "PPS";
+				ob.svilleIn = "PPS";
+				return ob;
+			}
+			
+			function load(){
+				var parentText = window.opener;
+				var tele = document.getElementById("user_phone");
+				var mel = document.getElementById("user_mail");
+				var prenom = document.getElementById("user_surname");
+				var nom = document.getElementById("user_name");
+				var villeRa = document.getElementById("VilleRattachement");
+				var villeIn = document.getElementById("VilleInscription");
+				/*Prendre les valeurs du serveur*/
+				var info = getInfo(parentText.son);
+				
+				
+				tele.value = info.stele;
+				mel.value = info.smel;
+				prenom.value = info.sprenom;
+				nom.value = info.snom;
+				villeIn.value = info.svilleIn;
+				villeRa.value = info.svilleRa;
+				
+				var listeVille = new Array("PPS", "UPCM", "Orleans"); // get by serveur
+				for (index in listeVille)
+				{
+					villeIn.options[villeIn.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+					villeRa.options[villeRa.options.length] = new Option(listeVille[index], listeVille[index], false, false);
+					if(villeRa.options[villeRa.options.length].text == "PPS")//Get from server
+					{
+						villeRa.options[villeRa.options.length].defaultSelected = true;
+					}
+					if(villeIn.options[villeIn.options.length].text == "UPCM")//Get from server
+					{
+						villeIn.options[villeIn.options.length].defaultSelected = true;
+					}
+				}
+				
+			}
+			
+			function quit()
+			{
+				window.close();
+			}
+			
+			-->
+		</script>
+	</head>
+	<body onload="load()">
+
+		<h2>Profil</h2>
+		<form id="formNewAccount" name="formNewAccount" method="post" >
+			<div>
+
+				<!-- Téléphone -->
+				<input value="Telephone" name="Telephone" type="tel" id="user_phone" maxlength="10"
+					   />
+				<br />
+
+				<!-- Email -->
+				<input  value="Email" name="Email" type="email" id="user_mail"
+						 />
+				<br />
+
+				<!-- Nom -->
+				<input  value="Nom" name="Nom" type="text" id="user_name" 
+						 />
+				<br />
+
+				<!-- Prenom -->
+				<input  value="Prenom" name="Prenom" type="text" id="user_surname" 
+						 />
+				<br />
+
+				<!-- Ville de rattachement -->
+				Ville de rattachement <br />
+				<input name="VilleRattachement" id="VilleRattachement">
+				</input>
+				<br />
+				<!-- Ville d’inscription -->
+				Ville d inscription <br />
+				<input name="VilleInscription" id="VilleInscription">
+				</input>
+				<br />
+				<br />
+				<input type = "button" value = "Quitter" onClick = "quit()"></input>
+			</div>
+		</form>
+
+	</body>
+</html>
