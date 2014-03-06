@@ -11,8 +11,8 @@ public class Publication
 		try
 		{
 			Connexion producer = new Connexion();
-			Endpoint endpointConnexion = Endpoint.create(producer);
-			endpointConnexion.publish("http://localhost:8090/connexion");
+			//Endpoint endpointConnexion = Endpoint.create(producer);
+			//endpointConnexion.publish("http://localhost:8090/connexion");
 			Endpoint endpointAdmin = Endpoint.create(producer.getAdmin());
 			endpointAdmin.publish("http://localhost:8090/connexionAdmin");
 			Endpoint endpointRunns = Endpoint.create(producer.getRunners());
@@ -31,7 +31,7 @@ public class Publication
 			endpointParts.stop();
 			endpointRunns.stop();
 			endpointAdmin.stop();
-			endpointConnexion.stop();
+			//endpointConnexion.stop();
 		}
 		catch(Throwable t)
 		{

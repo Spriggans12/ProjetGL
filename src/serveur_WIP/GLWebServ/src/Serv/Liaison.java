@@ -47,7 +47,7 @@ public class Liaison
 			}
 		);
 		consumer.start();
-		pt.sendBody("jms-test:fournisseur.requestQueue", "USE GL");
+		pt.sendBody("jms-test:fournisseur.requestQueue", "USE sql331733");
 	}
 
 	public void sendMessages(String S) throws Exception

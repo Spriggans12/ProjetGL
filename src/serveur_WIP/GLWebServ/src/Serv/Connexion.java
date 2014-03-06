@@ -1,7 +1,6 @@
 package Serv;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 
 import javax.jws.WebService;
 
@@ -29,10 +28,10 @@ public class Connexion
 	
 	public Connexion() throws Exception
 	{
-		SQLCli = new SQLClient("//localhost", "root", "SQLS3rv3r");
+		SQLCli = new SQLClient("//sql3.freesqldatabase.com", "sql331733", "dP3!fH1%");
 		if (SQLCli.connect())
 		{
-			SQLCli.executeQuery("USE GL");
+			SQLCli.executeQuery("USE sql331733");
 		}
 		else
 		{

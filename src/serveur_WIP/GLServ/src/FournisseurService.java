@@ -15,14 +15,14 @@ import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.component.jms.JmsMessage;
 import org.apache.camel.impl.DefaultCamelContext;
 
-import SQLClient.SQLClient;
+import SQLClient.SQLClientExe;
 
 
 public class FournisseurService
 {
 	public static void main(String[] args)
 	{
-		final SQLClient SQLCli = new SQLClient("//localhost", "root", "SQLS3rv3r");
+		final SQLClientExe SQLCli = new SQLClientExe("//sql3.freesqldatabase.com", "sql331733", "dP3!fH1%");
 		if (SQLCli.connect())
 		{
 			try
@@ -64,7 +64,7 @@ public class FournisseurService
 										}
 										catch (SQLException ex)
 										{
-											Logger.getLogger(SQLClient.class.getName()).log(Level.SEVERE, null, ex);
+											Logger.getLogger(SQLClientExe.class.getName()).log(Level.SEVERE, null, ex);
 											fileIn.setBody(ex.getMessage());
 										}
 										e.getIn().setHeader("JMSCorrelationID", e.getIn().getHeader("JMSMessageID"));
