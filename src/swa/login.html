@@ -25,9 +25,10 @@
 		var newUrl = "Compte.html";
 		console.log(id);
 		console.log(psw);
+		
 		if (id == idServ && psw == pswServ) {
-			console.log("true");
-			window.location=newUrl;
+			/*console.log("true");*/
+			window.location.replace(newUrl);
 		}
 		else{
 			alert("Nom d'utilisateur ou mot de pass incorrect!")
@@ -83,8 +84,8 @@
 			<tr align="center">
 
 				<td height="35" align="center"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<img src="image/login.png" name="Submit"
-						value="Login" onclick="verify()" />
+						<button type="button" onclick="window.location.href='Compte.html'"><img src="image/login.png" /></button>
+						
 				</label></td>
 
 			</tr>

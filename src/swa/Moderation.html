@@ -37,11 +37,11 @@
 		comptes.user3 = {};
 
 		comptes.user1.name = "user1"
-		comptes.user1.status = "active"
+		comptes.user1.status = "Active"
 		comptes.user2.name = "user2"
-		comptes.user2.status = "active"
+		comptes.user2.status = "Active"
 		comptes.user3.name = "user3"
-		comptes.user3.status = "active"
+		comptes.user3.status = "Active"
 
 		return comptes;
 	}
@@ -52,22 +52,22 @@
 			active=!active;
 			switch(line){
 			case 1:
-				document.getElementById("status1").innerHTML = "innactive";break;
+				document.getElementById("status1").innerHTML = "Inactive";break;
 			case 2:
-				document.getElementById("status2").innerHTML = "innactive";break;
+				document.getElementById("status2").innerHTML = "Inactive";break;
 			case 3:
-				document.getElementById("status3").innerHTML = "innactive";break;
+				document.getElementById("status3").innerHTML = "Inactive";break;
 			}
 		}
 		else{
 			active=!active;
 			switch(line){
 			case 1:
-				document.getElementById("status1").innerHTML = "active";break;
+				document.getElementById("status1").innerHTML = "Active";break;
 			case 2:
-				document.getElementById("status2").innerHTML = "active";break;
+				document.getElementById("status2").innerHTML = "Active";break;
 			case 3:
-				document.getElementById("status3").innerHTML = "active";break;
+				document.getElementById("status3").innerHTML = "Active";break;
 			}
 			}
 	}
@@ -87,8 +87,8 @@
 				}
 			</SCRIPT>
 			</FONT>
-			</a> </FONT><BR align="right"> <A href="login.html" color="#000000">D</A><A
-				href="login.html" color="#000000">disconnect</A> <BR> <BR>
+			</a> </FONT><BR align="right"> <A href="login.html" color="#000000"></A><A
+				href="login.html" color="#000000">Disconnect</A> <BR> <BR>
 		</P>
 	</DIV>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -116,8 +116,8 @@
 					<thead>
 						<tr>
 							<th>ID utilisateur</th>
-							<th>Status</th>
-							<th>Status</th>
+							<th>Statut</th>
+							<th>Modifier Statut</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -162,19 +162,19 @@
 						<td bgcolor="#FFFFFF"><script type="text/javascript">
 								document.write(getBlacklist().name1);
 							</script></td>
-						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+						<td bgcolor="#FFFFFF"><button type="button" >Retirer</button></td>
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF"><script type="text/javascript">
 								document.write(getBlacklist().name2);
 							</script></td>
-						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+						<td bgcolor="#FFFFFF"><button type="button" >Retirer</button></td>
 					</tr>
 					<tr>
 						<td bgcolor="#FFFFFF"><script type="text/javascript">
 								document.write(getBlacklist().name3);
 							</script></td>
-						<td bgcolor="#FFFFFF">Retirer de la liste</td>
+						<td bgcolor="#FFFFFF"><button type="button" >Retirer</button></td>
 					</tr>
 				</table></th>
 		</tr>
