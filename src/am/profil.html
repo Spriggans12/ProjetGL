@@ -79,18 +79,17 @@
 			function submit()
 			{
 				//connecter le serveur
-				window.location.href="menuPrincipale.html";
+				window.location.href="menuPrincipal.html";
 			}
 			
-			function quit()
-			{
-				window.location.href="menuPrincipale.html";
-			}
 			
 			-->
 		</script>
 	</head>
 	<body onload="load()">
+		<header>
+			<a href="menuPrincipal.html">Menu</a>
+		</header>
 
 		<h2>Profil</h2>
 		<form id="formNewAccount" name="formNewAccount" method="post" >
@@ -134,7 +133,6 @@
 				<br />
 				<br />
 				<input type = "button" value = "Soumettre"></input>
-				<input type = "button" value = "Quitter" onClick = "quit()"></input>
 			</div>
 		</form>
 

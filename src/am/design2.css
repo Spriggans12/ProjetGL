@@ -8,7 +8,6 @@
 {
 	height:100px;
 	width:100%;
-	margin-bottom : 10px;
 }
 
 #buttonList
@@ -83,7 +82,8 @@
 
 .listContainer
 {
-	height:300px;
+	/*height:300px;*/
+	margin-bottom: 5%;
 	border:"1px solid black";
 	text-align:center;
 }
@@ -98,3 +98,10 @@
 
 h1 { text-align: center; }
 h2 { text-align: center; }
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover { color: red; }

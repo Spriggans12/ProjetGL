@@ -56,7 +56,7 @@
 				while (container.hasChildNodes()) {
 					container.removeChild(container.lastChild);
 				}
-				var list = getArray(ville);//prendre les donn¨¦s du serveur
+				var list = getArray(ville);//prendre les donnes du serveur
 			
 				for(var i = 0; i<list.length; i++)
 				{
@@ -75,17 +75,18 @@
 				item.id = ob.tag;	
 				item.addEventListener("click", function(){
 					son = ob.text;
-					window.open("infopp.html");
+					window.location.href=("contact.html?nom="+ob.text);
+					// can easily give the right form to have an ID for the contact
 				});
 				return item;
 			}
 			
 			function getArray(s)
 			{
-				var listeVille = new Array("Tous","PPS", "UPCM", "Orleans");//get from server
 				switch (s)
 				{
 					case "Tous" : return new Array("Chaoli", "Thomas", "Vincent","Arthur");break;
+					case "PPS" : return new Array("Arthur", "Thomas", "Chaoli", "Salma", "Zijian"); break;
 					default :  return new Array("Zijian", "Chaoli","Vincent","Arthur");break;
 				}
 			}
@@ -93,16 +94,19 @@
 		</script>
 	</head>
 	<body onLoad = "initList()">
+		<header>
+			<a href="menuPrincipal.html">Menu</a>
+		</header>
 		<img id = "mainLogo" src="images/bg.jpg"></img>
-		<div id = "underLogo" style="background:url('images/underlogo.jpg') no-repeat; margin-left: 0; margin-top: 0">
+		<div id = "underLogo" style="background:url('images/underlogo.jpg') no-repeat bottom;">
 			<div src = "" class = "underLogoTitle"></div>
 			<div class = "underLogoText">Orsay</div>
 		</div>
 		<div class = "listContainer" id = "container" > 	
 		</div>
-		<div style = "text-align : center;">
-			<button id = "b1" onClick = "initList()">Classement Generale</button>
+		<footer style = "text-align : center;">
+			<button id = "b1" onClick = "initList()">Classement General</button>
 			<select id = "b2" onChange = "changerVille()"></select>
-		</div>
+		</footer> 
 	</body>
 </html>
