@@ -18,11 +18,17 @@
 
 	}
 </script>
+<script>	
+	function confirmPromo() {
+		
+	}
+</script>
 </HEAD>
 <BODY bgColor=#10609f>
 	<DIV id=account1>
 		<P align=right>
-			<a  href="Compte.html"> <FONT color=#ffffff> <SCRIPT language=javascript>
+			<a  href="Compte.html">
+				<FONT color=#ffffff> <SCRIPT language=javascript>
 				var n;
 				n = getUserInfo();
 				if (n.name == "") {
@@ -30,10 +36,10 @@
 				} else {
 					document.write(n.name);
 				}
-			</SCRIPT>
-			</FONT>
-			</a> <BR align="right"> <A href="login.html" color="#000000">D</A><A
-				href="login.html" color="#000000">Disconnect</A> <BR> <BR>
+				</SCRIPT></FONT>
+			</a>
+			<BR align="right"> <A href="login.html" color="#000000"></A>
+			<A href="login.html" color="#000000">Disconnect</A> <BR> <BR>
 		</P>
 	</DIV>
 	<DIV>
@@ -103,8 +109,9 @@
 					</table></th>
 				<th width="50%" scope="row"><table width="200%" border="0">
 						<tr>
-							<td width="53%"><font color="#FFFFFF">Promouvoir
-									Organisateur </font></td>
+							<div align="left">
+								<button onclick='confirm("Etes vous sur de vouloir faire cette promotion ? ")'>Promouvoir Organisateur de <script>document.write(getUserInfo().villeInscript);</script></button> 
+							</div>
 							<td width="47%">&nbsp;</td>
 						</tr>
 						<tr>
@@ -114,13 +121,15 @@
 								if (user.isActif) {
 									document.write("[Actif]");
 								} else {
-									document.write("[Innactif]");
+									document.write("[Inactif]");
 								}
 							</script></font></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td><font color="#FFFFFF">Blacklister</font></td>
+							<div align="left">
+								<button onclick='confirm("Etes vous de vouloir blacklister cette personne ?")'>Blacklister</script></button>
+							</div>
 							<td>&nbsp;</td>
 						</tr>
 					</table></th>
