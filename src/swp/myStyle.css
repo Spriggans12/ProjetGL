@@ -16,8 +16,15 @@ body {
   margin: 0;
   position: absolute;
   top: 4em;
-  right: 2em;
+  right: 1em;
   width: 30em }
+  ul.jou {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 6em;
+  left: 25em; }
 ul.navbar {
   list-style-type: none;
   padding: 0;
