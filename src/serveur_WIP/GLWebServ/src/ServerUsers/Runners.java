@@ -33,6 +33,11 @@ public class Runners implements Runnable
 	private boolean used(int ticket)
 	{
 		if(!ConnectedUsers.containsKey(ticket))return false;
+		ResultSet rs = SQLCli.executeQuery("SELECT * FROM Runners WHERE Phone = '"+ConnectedUsers.get(ticket)+"' AND BlackListed!=0");
+		try
+		{ if (rs != null && rs.next())return false; }
+		catch (SQLException e)
+		{ e.printStackTrace(); }
 		TicketsLifeTime.remove(ticket);
 		TicketsLifeTime.put(ticket, new Date());
 		return true;
@@ -159,6 +164,13 @@ public class Runners implements Runnable
 			return result;
 		}
 		return null;
+	}
+
+	public void DeconnectUser(int ticket)
+	{
+		if(!used(ticket))return;
+		ConnectedUsers.remove(ticket);
+		TicketsLifeTime.remove(ticket);
 	}
 
 	public int ConnectRunner(String phoneNumber, String Password)

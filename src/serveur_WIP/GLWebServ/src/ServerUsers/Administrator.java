@@ -47,6 +47,13 @@ public class Administrator implements Runnable
 		while(ticket<=1000000)ticket=rand.nextInt();
 	}
 
+	public void DeconnectAdmin(int t)
+	{
+		if(t!=ticket)return;
+		ticket=rand.nextInt();
+		while(ticket<=1000000)ticket=rand.nextInt();
+	}
+
 	public int ConnectAdmin(String Password)
 	{
 		try
