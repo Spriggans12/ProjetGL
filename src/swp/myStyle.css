@@ -10,6 +10,7 @@ body {
   margin: 0;
   position: absolute;
   width: 43em }
+  
   ul.text {
   list-style-type: none;
   padding: 0;
@@ -18,13 +19,21 @@ body {
   top: 4em;
   right: 1em;
   width: 30em }
+ ul.par {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 20em;
+  left: 1em; }
+ 
   ul.jou {
   list-style-type: none;
   padding: 0;
   margin: 0;
   position: absolute;
   top: 6em;
-  left: 25em; }
+  left: 28em; }
 ul.navbar {
   list-style-type: none;
   padding: 0;
